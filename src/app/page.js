@@ -8,6 +8,10 @@ export default function Home() {
 
   const handleSubmit = async (formData) => {
     try {
+      // 4. Storing plain text passwords in localStorage is a bad idea.
+      // Remove the following line of code to fix this issue.
+      localStorage.setItem("password", formData.get("password"));
+
       await login(formData);
     } catch (error) {
       console.log(error);
