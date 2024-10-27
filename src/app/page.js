@@ -1,6 +1,6 @@
 "use client";
 
-import { login, logout } from "./actions";
+import { login } from "./actions";
 import { useState } from "react";
 
 export default function Home() {
