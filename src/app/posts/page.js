@@ -1,5 +1,6 @@
 import PocketBase from "pocketbase";
 import PostForm from "./form";
+import PictureForm from "./picture";
 import { cookies as getCookies } from "next/headers";
 import { createPost } from "./actions";
 
@@ -42,6 +43,7 @@ export default async function Page() {
             return <Post key={post.id} post={post} />;
           })}
         </div>
+        <PictureForm />
       </div>
     </div>
   );

@@ -22,3 +22,16 @@ export async function createPost(formData) {
     throw new Error("Couldn't create post");
   }
 }
+
+export async function getPicture(url) {
+  try {
+    // 5. Shouldn't fetch resources from client passed URLs.
+    // Rather should e.g. store the image in the server and fetch it from there.
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return blob;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Couldn't get picture");
+  }
+}
