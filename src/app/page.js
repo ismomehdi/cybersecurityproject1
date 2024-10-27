@@ -6,9 +6,9 @@ import { useState } from "react";
 export default function Home() {
   const [error, setError] = useState("");
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (formData) => {
     try {
-      await login(event);
+      await login(formData);
     } catch (error) {
       console.log(error);
       setError("Couldn't log in");

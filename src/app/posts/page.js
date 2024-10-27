@@ -1,5 +1,7 @@
 import PocketBase from "pocketbase";
+import PostForm from "./form";
 import { cookies as getCookies } from "next/headers";
+import { createPost } from "./actions";
 
 async function getPosts() {
   const pb = new PocketBase("http://127.0.0.1:8090");
@@ -33,7 +35,7 @@ export default async function Page() {
       <div className="flex-shrink-0 flex-grow p-16 max-w-2xl">
         <h1 className="text-4xl text-center py-5">Add a post</h1>
         <div>
-          <CreatePost />
+          <PostForm />
           {posts?.map((post) => {
             return <Post key={post.id} post={post} />;
           })}
@@ -49,23 +51,5 @@ const Post = ({ post }) => {
       <p className="text-xs text-zinc-400">{post.created}</p>
       <p className="text-lg">{post.text}</p>
     </div>
-  );
-};
-
-const CreatePost = () => {
-  return (
-    <form className="flex flex-col gap-8 items-center">
-      <textarea
-        name="text"
-        className="border border-gray-300 p-2 rounded w-full"
-        placeholder="What's on your mind?"
-      />
-      <button
-        type="submit"
-        className="bg-orange-400 hover:bg-orange-300 text-white font-bold py-2 px-4 rounded max-w-xs w-full"
-      >
-        Post
-      </button>
-    </form>
   );
 };
