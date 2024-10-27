@@ -24,6 +24,8 @@ async function getPosts() {
     sort: "-created",
     cache: "no-store",
   });
+
+  console.log({ res });
   return res;
 }
 

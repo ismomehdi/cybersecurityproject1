@@ -5,7 +5,6 @@ import { cookies as getCookies } from "next/headers";
 
 export async function createPost(formData) {
   try {
-    console.log("hereeee!");
     const text = formData.get("text");
     const pb = new PocketBase("http://127.0.0.1:8090");
 
