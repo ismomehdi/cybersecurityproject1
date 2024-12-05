@@ -35,3 +35,17 @@ export async function getPicture(url) {
     throw new Error("Couldn't get picture");
   }
 }
+
+// 5. Uncomment this to fix the vulnerability:
+// export async function getPicture(_) {
+//   try {
+//     const response = await fetch(
+//       "https://d.newsweek.com/en/full/1673553/rudy-giuliani.webp?w=1120&f=b91bcb8b92bd42ff90e8a9dafcb477d3"
+//     );
+//     const blob = await response.blob();
+//     return blob;
+//   } catch (error) {
+//     console.log(error);
+//     throw new Error("Couldn't get picture");
+//   }
+// }
